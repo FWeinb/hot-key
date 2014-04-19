@@ -1,0 +1,8 @@
+{
+  "name": "hot-key",
+  "version": "0.0.1",
+  "dependencies": {
+    "polymer": "Polymer/polymer#master",
+    "mousetrap": "~1.4.6"
+  }
+}
