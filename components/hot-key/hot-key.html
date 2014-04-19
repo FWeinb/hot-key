@@ -13,7 +13,6 @@ defined in `trigger`. This shortcut is only active if the `if` attribute is true
 @class hot-key
 @blurb A Polymer element for lisiting to keyboard events
 @status alpha
-@events as defined in `trigger`
 @homepage https://github.com/FWeinb/hot-key
 -->
 <polymer-element name="hot-key" attributes="shortcut trigger if">
@@ -33,17 +32,25 @@ defined in `trigger`. This shortcut is only active if the `if` attribute is true
        */
       shortcut : [],
 
+
       /**
-       * The event/function that will be triggerd if the shortcut was pressed.
+       * Fire event if a shortcut was pressed.
+       * The name of the event equals the string defined in attribute `trigger
+       *
+       * @event attribute `trigger`
+       */
+
+      /**
+       * The event that will be triggerd if the shortcut was pressed.
        * @attribute trigger
-       * @type string|Function
+       * @type string
        */
       trigger : null,
 
       /**
-       * A boolean/Function to indicate if this hot-key is active.
+       * A boolean to indicate if this hot-key is active.
        * @attribute if
-       * @type boolean|Function
+       * @type boolean
        */
       if : true,
 
