@@ -15,7 +15,7 @@ defined in `trigger`. This shortcut is only active if the `if` attribute is true
 @status alpha
 @homepage https://github.com/FWeinb/hot-key
 -->
-<polymer-element name="hot-key" attributes="shortcut trigger if">
+<polymer-element name="hot-key" attributes="shortcut trigger if trap">
   <script>
     Polymer('hot-key', {
 
@@ -46,6 +46,14 @@ defined in `trigger`. This shortcut is only active if the `if` attribute is true
        * @type string
        */
       trigger : null,
+      
+      /**
+       * Trap the event to prevent propagation and default browser behavior.
+       * @attribute trap
+       * @default false
+       * @type boolean
+       */
+      trap : false,
 
       /**
        * A boolean to indicate if this hot-key is active.
@@ -90,6 +98,9 @@ defined in `trigger`. This shortcut is only active if the `if` attribute is true
         return function (){
           if ( this.if ) {
             funcToTrigger.bind(this)();
+          }
+          if (this.trap) {
+            return false;
           }
         }.bind(this);
       }
