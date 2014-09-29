@@ -85,6 +85,11 @@
         Hit the keys <kbd>↑</kbd> <kbd>↑</kbd> <kbd>↓</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> <kbd>←</kbd> <kbd>→</kbd> <kbd>B</kbd> <kbd>A</kbd> in sequence, to trigger the konami code.
         <hot-key shortcut="up up down down left right left right b a" trigger="konami" if="{{active}}"></hot-key>
       </p>
+      
+      <p>
+        Hit <kbd>Ctrl</kbd> + <kbd>S</kbd> to demo trapping default browser shortcuts.
+        <hot-key trap shortcut="['ctrl+s', 'command+s']" trigger="trap" if="{{active}}"></hot-key>
+      </p>
 
 
 
@@ -106,6 +111,10 @@
 
           this.addEventListener('konami', function(e){
              this.log += 'Konami event detected\n';
+          }.bind(this));
+          
+          this.addEventListener('trap', function(e){
+             this.log += 'Trap event detected\n';
           }.bind(this));
         }
       });
